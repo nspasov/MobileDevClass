@@ -13,6 +13,8 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
