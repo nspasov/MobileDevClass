@@ -13,19 +13,23 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    IonicStorageModule.forRoot(),  HttpClientModule
+    IonicStorageModule.forRoot(),  HttpClientModule, AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: FirestoreSettingsToken, useValue: {} },   
     EmailComposer
   ],
   bootstrap: [AppComponent]
